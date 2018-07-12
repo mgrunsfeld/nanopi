@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import spidev
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.RAW)
 GPIO.setwarnings(False)
 CSB_pin = 4
 GPIO.setup(CSB_pin,GPIO.OUT,initial = 1)
