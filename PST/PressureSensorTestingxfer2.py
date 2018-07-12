@@ -1,9 +1,9 @@
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import time
 import spidev
 
-GPIO.setmode(GPIO.RAW)
-GPIO.setwarnings(False)
+#GPIO.setmode(GPIO.RAW)
+#GPIO.setwarnings(False)
 #CSB_pin = 4
 #GPIO.setup(CSB_pin,GPIO.OUT,initial = 1)
 
@@ -26,7 +26,7 @@ MISO_pin = 21
 MOSI_pin = 19
 CLK_pin = 23
 CS_pin = 24
-spi.max_speed_hz = 20000000
+#spi.max_speed_hz = 20000000
 spi.mode = 0b00
 print "initiated vairables"
 
