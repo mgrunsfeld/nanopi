@@ -4,8 +4,8 @@ import spidev
 
 GPIO.setmode(GPIO.RAW)
 GPIO.setwarnings(False)
-CSB_pin = 4
-GPIO.setup(CSB_pin,GPIO.OUT,initial = 1)
+#CSB_pin = 4
+#GPIO.setup(CSB_pin,GPIO.OUT,initial = 1)
 
 spi=spidev.SpiDev()
 CMD_RESET = 0x1E				#ADC reset command (ADC = Analgo-Digital-Converter)
@@ -28,12 +28,14 @@ CLK_pin = 23
 CS_pin = 24
 spi.max_speed_hz = 20000000
 spi.mode = 0b00
+print "initiated vairables"
 
 def cmd_reset():
 	spi.cshigh = False
 	spi.writebytes([CMD_RESET])
 	time.sleep(.003)
 	spi.cshigh = True
+	print "reset"
 	
 def cmd_prom(coef_num):
 	ret = 0
@@ -45,6 +47,7 @@ def cmd_prom(coef_num):
 	ret = spi.xfer2([0x00])
 	rC = rC + ret
 	spi.cshigh = True
+	print "prom"
 	return rC
 	
 def PScalibrate():
@@ -53,6 +56,7 @@ def PScalibrate():
 	for i in range(0,7):
 		C[i] = cmd_prom(i) 
 	spi.close()
+	print "calibrated"
 	return C
 def cmd_adc(cmd,delaytime):
 	ret = 0 
@@ -71,10 +75,12 @@ def cmd_adc(cmd,delaytime):
 	ret = spi.xfer2([0x00])
 	temp = temp + ret
 	spi.cshigh = True
+	print "adc"
 	return temp
 
 	
 def calcPressure():
+	print "calcPressure start"
 	D1 = 0
 	D2 = 0
 	dT = 0.0
