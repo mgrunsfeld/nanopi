@@ -50,7 +50,7 @@ def cmd_prom(coef_num):
 def PScalibrate():
 	spi.open(0,0)
 	cmd_reset()
-	for i in range(0,7)
+	for i in range(0,7):
 		C[i] = cmd_prom(i) 
 	spi.close()
 	return C
