@@ -97,7 +97,7 @@ def calcPressure():
 		SENS2 = 0
 		if T>45:
 			SENS2 = SENS2 - pow(T-4500,2)/pow(2,3)
-	else 
+	else :
 		T2 = pow(dT,2)/pow(2,3)
 		OFF2 = 3*pow(100*T - 2000,2)
 		SENS2 = 7*pow(100*T - 2000,2)/pow(2,3)
