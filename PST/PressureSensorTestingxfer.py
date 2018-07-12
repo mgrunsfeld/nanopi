@@ -29,13 +29,13 @@ CS_pin = 24
 spi.max_speed_hz = 20000000
 spi.mode = 0b00
 
-def cmd_reset()
+def cmd_reset():
 	spi.cshigh = False
 	spi.writebytes([CMD_RESET])
 	time.sleep(.003)
 	spi.cshigh = True
 	
-def cmd_prom(coef_num)
+def cmd_prom(coef_num):
 	ret = 0
 	rC = 0
 	spi.cshigh = False
@@ -47,14 +47,14 @@ def cmd_prom(coef_num)
 	spi.cshigh = True
 	return rC
 	
-def PScalibrate()
+def PScalibrate():
 	spi.open(0,0)
 	cmd_reset()
 	for i in range(0,7)
 		C[i] = cmd_prom(i) 
 	spi.close()
 	return C
-def cmd_adc(cmd,delaytime)
+def cmd_adc(cmd,delaytime):
 	ret = 0 
 	temp = 0
 	spi.cshigh = False
@@ -74,7 +74,7 @@ def cmd_adc(cmd,delaytime)
 	return temp
 
 	
-def calcPressure()
+def calcPressure():
 	D1 = 0
 	D2 = 0
 	dT = 0.0
