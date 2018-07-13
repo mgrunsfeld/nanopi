@@ -31,6 +31,7 @@ spi.mode = 0b00
 print "initiated vairables"
 
 def cmd_reset():
+	print "reset start"
 	spi.cshigh = False
 	spi.writebytes([CMD_RESET])
 	time.sleep(.003)
@@ -38,6 +39,7 @@ def cmd_reset():
 	print "reset"
 	
 def cmd_prom(coef_num):
+	print "prom start"
 	ret = 0
 	rC = 0
 	spi.cshigh = False
@@ -47,10 +49,11 @@ def cmd_prom(coef_num):
 	ret = spi.xfer2([0x00])
 	rC = rC + ret
 	spi.cshigh = True
-	print "prom"
+	print "prom close"
 	return rC
 	
 def PScalibrate():
+	print "calibrate start"
 	spi.open(0,0)
 	cmd_reset()
 	for i in range(0,7):
@@ -59,6 +62,7 @@ def PScalibrate():
 	print "calibrated"
 	return C
 def cmd_adc(cmd,delaytime):
+	print "adc start"
 	ret = 0 
 	temp = 0
 	spi.cshigh = False
@@ -114,6 +118,7 @@ def calcPressure():
 	SENS = SENS - SENS2
 	P = (((D1*SENS)/pow(2,21)-OFF)/pow(2,15))/100
 	spi.close()
+	print "pressure calculated"
 	return P
 	
 PScalibrate()
