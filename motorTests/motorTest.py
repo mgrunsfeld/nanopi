@@ -9,12 +9,12 @@ GPIO.setup(2,GPIO.OUT, initial = 0)
 
 
 for i in range(0,200):
-	for i <= 100:
+	for i < 100:
 		GPIO.output(stepPIN,1)
 		time.sleep(.000003)
 		GPIO.output(stepPIN,0)
 		time.sleep(.000003)
-	for i > 101:
+	for i > 99:
 		GPIO.output(dirPIN, 1)
 		GPIO.output(stepPIN,1)
 		time.sleep(.000003)
