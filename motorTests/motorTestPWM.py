@@ -10,7 +10,7 @@ freq = 240000
 dc = 50
 step = GPIO.PWM(3, freq)
 step.start(dc)
-time.sleep(5)
+time.sleep(15)
 step.stop()
 GPIO.cleanup()
 	
