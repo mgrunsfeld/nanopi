@@ -7,3 +7,4 @@ while True:
 	name = ser.read(2)
 	if str(name) == 'A1':
 		ser.write('\r\n You called?')
+		continue
