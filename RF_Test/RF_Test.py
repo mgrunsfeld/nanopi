@@ -8,3 +8,5 @@ while True:
 	if str(name) == 'A1':
 		ser.write('\r\n You called?\r\n')
 		continue
+
+#if you send A1 to this serial, it writes to the other device: "You called?"
